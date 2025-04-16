@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+#puzzle {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 2px;
+}
+.tile {
+    background-size: 100% 100%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.empty {
+    background: #f0f0f0;
+    border: none;
+    cursor: default;
+}

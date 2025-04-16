@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Puzzle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Sliding Puzzle Game</h1>
+
+    <img src="{{ url_for('static', filename='puzzle_image.jpg') }}" alt="Puzzle Image">
+
+    <!-- Spēles pārējais saturs (puzles izkārtojums, interfeiss, utt.) -->
+    <p>Spēles sākšana un logika šeit.</p>
+
+    <label for="size-select">Choose grid size:</label>
+    <select id="size-select">
+        <option value="3">3x3</option>
+        <option value="4">4x4</option>
+        <option value="5">5x5</option>
+        <option value="6" selected>6x6</option>
+    </select>
+
+    <div id="puzzle"></div>
+
+    <!-- Form for submitting game results -->
+    <div>
+        <h2>Submit Your Results</h2>
+        <form action="/submit_result" method="POST">
+            <label for="player_name">Player Name:</label>
+            <input type="text" name="player_name" required><br>
+
+            <label for="grid_size">Grid Size:</label>
+            <input type="number" name="grid_size" id="grid_size" value="6" readonly><br>
+
+            <label for="moves">Number of Moves:</label>
+            <input type="number" name="moves" id="moves" required><br>
+
+            <label for="time_taken">Time Taken (in seconds):</label>
+            <input type="number" step="0.1" name="time_taken" id="time_taken" required><br>
+
+            <input type="submit" value="Submit Result">
+        </form>
+    </div>
+
+    <script>
+        const imagePath = "{{ url_for('static', filename='your-image.jpg') }}";
+    </script>
+    <script src="{{ url_for('static', filename='puzzle.js') }}"></script>
+</body>
+</html>
